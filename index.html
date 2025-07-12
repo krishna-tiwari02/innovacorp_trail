@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innova Corporate</title>
+  <meta name="description" content="Innova Corporate: India’s Trusted Chemical & Flooring Supplier. Delivering certified quality products since 2005 – ISO 9001:2015 Certified.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #007bff;
+      --black: #111;
+      --white: #fff;
+      --accent: #e3f2fd;
+      --gray: #f5f5f5;
+      --shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary);
+      background: var(--white);
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      display: none;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #000000, #0a0a23);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      background: var(--gray);
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #222;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .product-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .why-choose-us {
+      background-color: var(--accent);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .why-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .why-item i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .why-item:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    /* New: Blog Section Styling */
+    #blog {
+      background: #fffbe7;
+      border-left: 5px solid var(--primary);
+    }
+    #blog h2 {
+      color: #d2691e;
+    }
+    #blog p {
+      color: #444;
+    }
+
+    /* New: Career Section Styling */
+    #career {
+      background: #e8f5e9;
+      border-left: 5px solid #388e3c;
+    }
+    #career h2 {
+      color: #388e3c;
+    }
+    #career p {
+      color: #222;
+    }
+
+    /* New: Enquiry Section Styling */
+    #enquiry {
+      background: #e3f2fd;
+      border-left: 5px solid #1976d2;
+    }
+    #enquiry h2 {
+      color: #1976d2;
+    }
+
+    /* New: About Section Styling */
+    #about {
+      background: #fff;
+      border-left: 5px solid #007bff;
+    }
+    #about h2 {
+      color: #007bff;
+    }
+
+    /* New: Contact Section Styling */
+    #contact {
+      background: #f3e5f5;
+      border-left: 5px solid #8e24aa;
+    }
+    #contact h2 {
+      color: #8e24aa;
+    }
+    #contact p i {
+      color: #8e24aa;
+      margin-right: 0.5em;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .social-icons {
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+      transition: transform 0.3s, color 0.3s;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #0056b3;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        display: none;
+        background: var(--black);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+      }
+      nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .section, .why-choose-us {
+        padding: 2rem 1rem;
+      }
+      .products, .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Innova Corporate</div>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav id="navbar">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#enquiry">Enquiry</a>
+      <a href="#contact">Contact</a>
+      <a href="#career">Career</a>
+      <a href="#blog">Blog</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>India’s Trusted Chemical & Flooring Supplier</h1>
+    <p>Delivering certified quality products since 2005 – ISO 9001:2015 Certified</p>
+  </section>
+
+  <section class="section" id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <h3>Polyelectrolyte</h3>
+        <p>Used in water treatment and paper industry</p>
+      </div>
+      <div class="product-card">
+        <h3>Activated Carbon</h3>
+        <p>Ideal for filtration and purification systems</p>
+      </div>
+      <div class="product-card">
+        <h3>Industrial Chemicals</h3>
+        <p>Chemicals for industries, labs, and cleaning</p>
+      </div>
+      <div class="product-card">
+        <h3>Flooring Systems</h3>
+        <p>Epoxy, PU, Anti-static flooring and more</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose-us">
+    <h2>Why Choose Us</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <i class="fas fa-certificate"></i>
+        <h4>ISO 9001 Certified</h4>
+        <p>We maintain global quality standards and consistent excellence.</p>
+      </div>
+      <div class="why-item">
+        <i class="fas fa-truck"></i>
+        <h4>Timely Delivery</h4>
+        <p>100% on-time delivery promise across India and globally.</p>
+      </div>
+      <div class="why-item">
+        <i class="fas fa-industry"></i>
+        <h4>Wide Industry Reach</h4>
+        <p>Trusted by top brands in chemicals, food, pharma, and textiles.</p>
+      </div>
+      <div class="why-item">
+        <i class="fas fa-headset"></i>
+        <h4>24/7 Support</h4>
+        <p>Get expert help anytime from our professional support team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+      Innova Corporate (India) is a leading supplier of chemicals and flooring solutions, serving industries across India and globally since 2005. 
+      We are committed to delivering quality, certified products and innovative solutions for water treatment, industrial processes, and advanced flooring systems. 
+      Our team is dedicated to customer satisfaction, technical support, and continuous improvement.
+    </p>
+  </section>
+
+  <section class="section" id="enquiry">
+    <h2>Enquiry</h2>
+    <p>
+      For product enquiries, please email <a href="mailto:sales@innovacorporate.com">sales@innovacorporate.com</a> or call us at <b>+91-11-27473243</b>.
+      Our sales team will respond promptly to your requirements and provide expert guidance for your industry needs.
+    </p>
+  </section>
+
+  <section class="section" id="career">
+    <h2>Career</h2>
+    <p>
+      Interested in joining our dynamic team? We are always looking for talented professionals in sales, technical support, and operations.
+      Send your resume to <a href="mailto:hr@innovacorporate.com">hr@innovacorporate.com</a> and become a part of a growing, innovative company.
+    </p>
+  </section>
+
+  <section class="section" id="blog">
+    <h2>Blog</h2>
+    <p>
+      Stay tuned for updates, industry insights, and technical articles on water treatment, industrial chemicals, and flooring solutions.
+      Our blog shares the latest trends, case studies, and tips to help your business stay ahead.
+    </p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p><b>Innova Corporate (India)</b></p>
+    <p>2B/BW Shalimar Bagh, New Delhi −110088</p>
+    <p><i class="fas fa-phone"></i> +91-11-27473243</p>
+    <p><i class="fas fa-envelope"></i> sales@innovacorporate.com</p>
+    <p>
+      Connect with us for business queries, partnership opportunities, or technical support. We look forward to working with you!
+    </p>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://wa.me/911127473243" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/company/innova-corporate-india" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:sales@innovacorporate.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Innova Corporate. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
